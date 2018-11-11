@@ -9,9 +9,6 @@
                 "description": "Username for the Virtual Machine."
             }
         },
-        "storageAccountName": {
-            "type": "string"
-        },
         "availabilitySets_name": {
             "defaultValue": "vmas02",
             "type": "String"
@@ -52,6 +49,7 @@
         }
     },
     "variables": {
+        "storageAccountName": "chrissa02",
         "nicName": "NIC01",
         "addressPrefix": "10.0.0.0/16",
         "subnetName": "Subnet01",
