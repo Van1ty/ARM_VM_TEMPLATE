@@ -153,7 +153,8 @@
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
-                "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+                "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]",
+                "[resourceId('Microsoft.Compute/availabilitySets/', parameters('availabilitysets_name))]"
             ],
             "properties": {
                 "hardwareProfile": {
@@ -163,6 +164,9 @@
                     "computerName": "[variables('vmName')]",
                     "adminUsername": "[parameters('adminUsername')]",
                     "adminPassword": "[parameters('adminPassword')]"
+                },
+                "availabilitySet": {
+                    "availabilitysetname": "[parameters('availabilitysets_name')"
                 },
                 "storageProfile": {
                     "imageReference": {
