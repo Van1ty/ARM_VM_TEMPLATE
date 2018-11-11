@@ -9,6 +9,13 @@
                 "description": "Username for the Virtual Machine."
             }
         },
+        "storageAccountName": {
+            "type": "string"
+        },
+        "availabilitySets_name": {
+            "defaultValue": "vmas02",
+            "type": "String"
+        },
         "adminPassword": {
             "type": "securestring",
             "metadata": {
@@ -45,7 +52,6 @@
         }
     },
     "variables": {
-        "storageAccountName": "chrissa01",
         "nicName": "NIC01",
         "addressPrefix": "10.0.0.0/16",
         "subnetName": "Subnet01",
@@ -57,8 +63,24 @@
     },
     "resources": [
         {
+        "type": "Microsoft.Compute/availabilitySets",
+        "sku": {
+            "name": "Aligned"
+        },
+        "name": "[parameters('availabilitySets_name')]",
+        "apiVersion": "2018-06-01",
+        "location": "[parameters('location')]",
+        "scale": null,
+        "properties": {
+            "platformUpdateDomainCount": 10,
+            "platformFaultDomainCount": 3,
+            "virtualMachines": []
+        },
+        "dependsOn": []
+    },
+        {
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageAccountName')]",
+            "name": "[parameter('storageAccountName')]",
             "apiVersion": "2016-01-01",
             "location": "[parameters('location')]",
             "sku": {
