@@ -154,7 +154,7 @@
             "dependsOn": [
                 "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
                 "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]",
-                "[resourceId('Microsoft.Compute/availabilitySets/', parameters('availabilitysets_name))]"
+                "[resourceId('Microsoft.Compute/availabilitySets/', parameters('availabilitysets_name'))]"
             ],
             "properties": {
                 "hardwareProfile": {
