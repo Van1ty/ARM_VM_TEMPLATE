@@ -13,9 +13,6 @@
             "defaultValue": "vmas02",
             "type": "String"
         },
-        "storageAccountName": {
-            "type" : "string"
-        },
         "adminPassword": {
             "type": "securestring",
             "metadata": {
@@ -52,6 +49,7 @@
         }
     },
     "variables": {
+        "storageAccountName": "chrissa02"
         "nicName": "NIC01",
         "addressPrefix": "10.0.0.0/16",
         "subnetName": "Subnet01",
@@ -80,7 +78,7 @@
     },
         {
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('storageAccountName')]",
+            "name": "[variables('storageAccountName')]",
             "apiVersion": "2016-01-01",
             "location": "[parameters('location')]",
             "sku": {
